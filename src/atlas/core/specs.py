@@ -103,7 +103,8 @@ class Spec:
         Longest first matters: `L-A1` belongs to `L-A`, not to `L-`, and the
         first matching prefix wins.
         """
-        return sorted({*self.rule_prefixes, *self.checklist_prefixes}, key=len, reverse=True)
+        deduped = dict.fromkeys([*self.rule_prefixes, *self.checklist_prefixes])
+        return sorted(deduped, key=len, reverse=True)
 
     @property
     def companions(self) -> list[str]:
