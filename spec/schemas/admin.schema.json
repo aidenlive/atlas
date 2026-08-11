@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas.example/spec/schemas/admin.schema.json",
+  "title": "Atlas admin manifest",
+  "description": "Who may act here: principals, grants, and the six duties of ownership (ADMIN).",
+  "type": "object",
+  "required": ["standard", "principals", "duties"],
+  "additionalProperties": false,
+  "properties": {
+    "standard": {"type": "string", "pattern": "^project/[0-9]+\\.[0-9]+$"},
+    "profile": {"type": "string", "enum": ["solo", "team", "org"], "description": "ADMIN conformance profile"},
+    "principals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "kind", "role"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^(person|team|role|agent):[a-z0-9-]+$"},
+          "name": {"type": "string"},
+          "kind": {"type": "string", "enum": ["person", "team", "role", "agent"]},
+          "role": {"type": "string", "enum": ["observer", "contributor", "maintainer", "admin", "owner", "steward"], "description": "ADMIN role ladder; R-3 bars agents above maintainer"},
+          "sponsor": {"type": "string", "description": "I-2: the human accountable for an agent"},
+          "expires": {"type": ["string", "null"], "format": "date", "description": "I-4: elevation expires"},
+          "contact": {"type": "string"}
+        }
+      }
+    },
+    "duties": {
+      "type": "object",
+      "description": "ADMIN: ownership decomposed. Every duty names a principal.",
+      "required": ["direction", "code", "operations", "security", "cost", "compliance"],
+      "additionalProperties": false,
+      "properties": {
+        "direction": {"type": "string"},
+        "code": {"type": "string"},
+        "operations": {"type": "string"},
+        "security": {"type": "string"},
+        "cost": {"type": "string"},
+        "compliance": {"type": "string"}
+      }
+    },
+    "surfaces": {
+      "type": "array",
+      "description": "Where authority is exercised beyond the forge.",
+      "items": {
+        "type": "object",
+        "required": ["name", "accountable"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "accountable": {"type": "string"},
+          "review_days": {"type": "integer", "minimum": 30, "maximum": 365}
+        }
+      }
+    },
+    "two_key_actions": {
+      "type": "array",
+      "description": "I-5: irreversible acts requiring two named principals.",
+      "items": {"type": "string"}
+    }
+  }
+}

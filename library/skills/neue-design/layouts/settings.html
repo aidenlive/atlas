@@ -1,0 +1,118 @@
+<!doctype html>
+<!-- NEUE layout — settings (app shell). Reading measure inside the working
+     surface; fieldset per group; toggles only for self-saving switches. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Settings · Ops</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/fill/style.css">
+  <script src="../dist/neue.js" defer></script>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+
+<div class="n-app">
+  <nav class="n-app__sidebar" aria-label="Primary">
+    <div class="n-app__brand">
+      <span class="n-avatar n-avatar--xs" aria-hidden="true">O</span>
+      <strong class="t-label-lg">Ops</strong>
+    </div>
+    <p class="n-sidebar-group">Monitor</p>
+    <a class="n-sidebar-link" href="dashboard.html">Status</a>
+    <a class="n-sidebar-link" href="#">Alerts</a>
+    <p class="n-sidebar-group">Manage</p>
+    <a class="n-sidebar-link" href="admin.html">Members</a>
+    <a class="n-sidebar-link" aria-current="page" href="#">Settings</a>
+  </nav>
+
+  <div class="n-app__main">
+    <header class="n-toolbar">
+      <h1 class="t-headline-xs">Workspace settings</h1>
+      <button class="n-btn n-btn--icon n-btn--sm u-right" data-theme-toggle aria-label="Toggle theme"><i class="ph ph-moon" aria-hidden="true"></i></button>
+    </header>
+
+    <main id="main" tabindex="-1" class="n-app__content">
+      <form class="l-stack" style="--gap: var(--s-8); max-width: var(--content)">
+
+        <fieldset style="border: 0; padding: 0; margin: 0">
+          <legend class="t-mono-xs t-muted" style="padding-bottom: var(--s-4)">Workspace</legend>
+          <div class="l-stack" style="--gap: var(--s-5)">
+            <div class="n-field">
+              <label for="ws-name">Workspace name</label>
+              <input class="n-input" id="ws-name" type="text" value="Ops" autocomplete="organization">
+              <p class="n-hint" id="ws-name-hint">Shown in the sidebar and in invitations. At least 3 characters.</p>
+            </div>
+            <div class="n-field">
+              <label for="ws-slug">URL slug</label>
+              <input class="n-input" id="ws-slug" type="text" value="ops-team" aria-describedby="ws-slug-hint">
+              <p class="n-hint" id="ws-slug-hint">Lowercase letters, digits and dashes. Changing it breaks existing links.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <hr class="n-divider">
+
+        <fieldset style="border: 0; padding: 0; margin: 0">
+          <legend class="t-mono-xs t-muted" style="padding-bottom: var(--s-4)">Notifications</legend>
+          <div class="l-stack" style="--gap: var(--s-5)">
+            <div class="l-row">
+              <div class="l-stack" style="--gap: 2px">
+                <p class="t-label">Incident alerts</p>
+                <p class="t-body-xs t-muted">Page the on-call channel when a Sev-1 or Sev-2 opens.</p>
+              </div>
+              <button type="button" class="n-toggle u-right" role="switch" aria-checked="true" aria-label="Incident alerts"></button>
+            </div>
+            <div class="l-row">
+              <div class="l-stack" style="--gap: 2px">
+                <p class="t-label">Weekly digest</p>
+                <p class="t-body-xs t-muted">A summary of uptime and deploys, Monday 09:00.</p>
+              </div>
+              <button type="button" class="n-toggle u-right" role="switch" aria-checked="false" aria-label="Weekly digest"></button>
+            </div>
+          </div>
+        </fieldset>
+
+        <hr class="n-divider">
+
+        <fieldset style="border: 0; padding: 0; margin: 0">
+          <legend class="t-mono-xs t-muted" style="padding-bottom: var(--s-4)">Data retention</legend>
+          <div class="n-field">
+            <label for="retention">Keep raw events for</label>
+            <select class="n-select" id="retention" style="max-width: 280px">
+              <option>30 days</option><option selected>90 days</option><option>180 days</option>
+            </select>
+            <p class="n-hint">Aggregates are kept indefinitely. Applies from the next billing cycle.</p>
+          </div>
+        </fieldset>
+
+        <div class="l-row" style="--justify: flex-end; --gap: var(--s-3); margin-top: var(--s-2)">
+          <button type="button" class="n-btn n-btn--ghost">Cancel</button>
+          <button type="submit" class="n-btn n-btn--primary">Save changes</button>
+        </div>
+
+        <div class="n-callout n-callout--error" style="margin-top: var(--s-4)">
+          <i class="ph-fill ph-warning-octagon" aria-hidden="true"></i>
+          <div class="n-callout__body">
+            <p class="n-callout__title">Delete workspace.</p>
+            <p>Removes all data for every member after a 14-day grace period.</p>
+            <button type="button" class="n-btn n-btn--danger n-btn--sm" style="margin-top: var(--s-3)">Delete workspace…</button>
+          </div>
+        </div>
+
+      </form>
+    </main>
+  </div>
+</div>
+
+<nav class="n-bottombar" aria-label="Primary">
+  <a href="dashboard.html"><i class="ph ph-pulse" aria-hidden="true"></i>Status</a>
+  <a href="#"><i class="ph ph-bell" aria-hidden="true"></i>Alerts</a>
+  <a href="admin.html"><i class="ph ph-users" aria-hidden="true"></i>Members</a>
+  <a aria-current="page" href="#"><i class="ph-fill ph-gear" aria-hidden="true"></i>Settings</a>
+</nav>
+
+</body>
+</html>

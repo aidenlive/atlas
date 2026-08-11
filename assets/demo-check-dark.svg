@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="727" height="666" viewBox="0 0 727 666" role="img" aria-label="Terminal output of atlas check">
+  <title>atlas check</title>
+  <rect width="727" height="666" rx="10" fill="#121212" stroke="#292929"/>
+  <path d="M0 10a10 10 0 0 1 10-10h707a10 10 0 0 1 10 10v30H0z" fill="#181818"/>
+  <circle cx="22" cy="20" r="5.5" fill="#292929"/><circle cx="40" cy="20" r="5.5" fill="#292929"/><circle cx="58" cy="20" r="5.5" fill="#292929"/>
+  <text x="363.5" y="25" fill="#989898" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="middle">atlas check</text>
+  <g font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5">
+  <text x="26" y="56" fill="#F5F5F5" font-weight="500" xml:space="preserve">atlas check · atlas</text>
+  <text x="26" y="98" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    project.yaml is present and schema-valid  PROJECT PJ-12</text>
+  <text x="26" y="119" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    All eight Matrix dimensions are classified  MATRIX MX-01</text>
+  <text x="26" y="140" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    admin.yaml names who may act and who answers  ADMIN I-1</text>
+  <text x="26" y="161" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    org.yaml stays inside the steward bounds  ADMIN R-4</text>
+  <text x="26" y="182" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    The root contains only sanctioned entries  PROJECT PJ-01</text>
+  <text x="26" y="203" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every required root document exists  PROJECT PJ-02</text>
+  <text x="26" y="224" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    No in-repository graveyards  PROJECT PJ-09</text>
+  <text x="26" y="245" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    One canonical agent guide, many pointers  PROJECT PJ-11</text>
+  <text x="26" y="266" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    The README follows the fixed skeleton  PRESENTATION P-06</text>
+  <text x="26" y="287" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Forge metadata is declared in the manifest  PRESENTATION P-01</text>
+  <text x="26" y="308" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every standard declares its metadata  PROJECT PJ-16</text>
+  <text x="26" y="329" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Rule identifiers are unique, owned, and gapless  PROJECT PJ-16</text>
+  <text x="26" y="350" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every prompt asks for exactly one thing  LIBRARY L-01</text>
+  <text x="26" y="371" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    The design system resolves, and its derivations are current  LIBRARY L-A4</text>
+  <text x="26" y="392" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    The prompt index resolves in both directions  LIBRARY L-08</text>
+  <text x="26" y="413" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every workstream carries all nine sections  WORKSTREAM W-05</text>
+  <text x="26" y="434" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Generated views match their sources  WORKSTREAM W-19</text>
+  <text x="26" y="455" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every document declares its facts  WRITING WR-16</text>
+  <text x="26" y="476" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every relative link points at something  WRITING WR-14</text>
+  <text x="26" y="497" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Published prose passes WRITING  WRITING WR-01</text>
+  <text x="26" y="518" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    The lexicon does not contradict itself  WRITING WR-07</text>
+  <text x="26" y="539" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every worked example validates  PROJECT PJ-10</text>
+  <text x="26" y="560" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    Every waiver names a reason, an approver, and an expiry  CHECKLIST ST-01</text>
+  <text x="26" y="581" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    The starter template passes what it teaches  PROJECT PJ-01</text>
+  <text x="26" y="623" fill="#5FD37F" font-weight="400" xml:space="preserve">ok    24 gates passed, 0 skipped</text>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- NEUE template — share image (1200x630). Screenshot the frame.
+     Used for docs links and internal announcements. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <title>Share card · Neue</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <style>
+    body { display: grid; place-items: center; min-height: 100vh; }
+    .card-frame { width: 1200px; height: 630px;
+      background: var(--color-background);
+      border: var(--hairline) solid var(--color-outline);
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: var(--s-11); }
+  </style>
+</head>
+<body class="neue-base">
+  <div class="card-frame">
+    <div class="l-stack" style="--gap: var(--s-4)">
+      <p class="t-mono-sm" style="color: var(--color-on-surface-3)">docs · guides · 01</p>
+      <h1 style="font-size: 72px; font-weight: 500; line-height: 1.05; letter-spacing: -0.025em; max-width: 18ch">
+        Getting started with the Neue design system
+      </h1>
+    </div>
+    <div class="l-row">
+      <strong class="t-headline-sm">Neue</strong>
+      <p class="t-body-sm u-right" style="color: var(--color-on-surface-2)">internal.example.com/docs</p>
+    </div>
+  </div>
+</body>
+</html>

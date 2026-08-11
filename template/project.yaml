@@ -1,0 +1,26 @@
+# project.yaml — this repository's classification record (PJ-12, MX-01).
+# Every value is a closed enumeration from MATRIX. `atlas validate project.yaml`.
+standard: project/1.0
+
+name: "{{NAME}}"
+
+# The eight MATRIX dimensions. All eight, always (MX-01).
+type: tool.cli                 # D1 — app.* lib.* service.* tool.* platform.* content.*
+stage: incubating              # D2 — idea → incubating → active → maintenance → deprecated → archived
+maturity: experimental         # D3 — experimental alpha beta stable hardened
+packaging: none                # D4 — registry container binary installer bundle source none
+deploy: none                   # D5 — none client serverless managed.* selfhosted embedded
+ownership: "{{OWNER}}"         # D6 — must resolve in admin.yaml (MX-10)
+visibility: internal           # D7 — public internal restricted private
+support: best-effort           # D8 — none best-effort business-hours sla
+
+successor: null
+sunset_date: null
+
+metadata:                      # PRESENTATION P-01, P-03, P-04
+  description: "{{DESCRIPTION}}"
+  website: https://example.com/{{NAME}}
+  topics: [tool, cli, "{{NAME}}"]   # P-03 — first topic is the Matrix family
+
+links:
+  docs: ./docs/

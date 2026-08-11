@@ -1,0 +1,11 @@
+# Replaced by `atlas work new`. Edit freely afterwards; `atlas work validate`
+# checks it against spec/schemas/workstream.schema.json.
+id: 00_template
+title: Template
+status: planned
+owner: team:standards
+orchestrator: null
+opened: 2026-08-08
+target: null
+closed: null
+standards: [project, checklist, workstream]

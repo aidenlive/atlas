@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- NEUE template — one-pager / internal announcement. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ingest v2 · one-pager</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <script src="../dist/neue.js" defer></script>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+<main id="main" tabindex="-1" class="l-container prose" style="padding-block: var(--s-10) var(--s-12)">
+  <p class="t-caption t-muted">Proposal · Platform team</p>
+  <h1 class="t-display" style="margin-top: var(--s-2)">Ingest v2</h1>
+  <p class="t-body-lg t-secondary" style="margin-top: var(--s-4); max-width: var(--measure-narrow)">
+    Replace per-event writes with batched, regional ingestion. Cuts write cost
+    by 60% and removes our largest single point of failure.
+  </p>
+
+  <section class="n-section">
+    <h2 class="t-headline-md">Problem</h2>
+    <p class="t-body">Every event writes synchronously to one region. Cost
+      scales linearly with traffic and one queue stall degrades the whole
+      product, as it did on 14 April.</p>
+  </section>
+  <section class="n-section">
+    <h2 class="t-headline-md">Proposal</h2>
+    <p class="t-body">Batch writes at 500 ms windows, accept them in two
+      regions, and reconcile through the existing log. No API changes;
+      consumers see at-least-once delivery exactly as today.</p>
+  </section>
+  <section class="n-section">
+    <h2 class="t-headline-md">Cost and timeline</h2>
+    <p class="t-body">Six engineer-weeks across two people. Ships behind a
+      flag in July; the flag is removed after two clean weeks.</p>
+  </section>
+
+  <div class="l-row" style="margin-top: var(--s-8); --gap: var(--s-3)">
+    <button class="n-btn n-btn--primary">Approve for July</button>
+    <button class="n-btn n-btn--ghost">Comment in the doc</button>
+  </div>
+</main>
+</body>
+</html>

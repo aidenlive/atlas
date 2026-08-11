@@ -1,0 +1,80 @@
+<!doctype html>
+<!-- NEUE layout — auth (focus shell). One task, no navigation, because
+     navigation is a way out of it. Sign-in card + OTP step pattern. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sign in · Ops</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/fill/style.css">
+  <script src="../dist/neue.js" defer></script>
+  <style>
+    .otp-row { display: flex; gap: var(--s-2); }
+    .otp-cell { width: 48px; height: 56px; display: grid; place-items: center;
+      border-radius: var(--r-sm); background: var(--color-surface);
+      border: var(--hairline) solid var(--color-outline-strong);
+      font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums; }
+    .otp-gap { width: var(--s-2); }
+  </style>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+
+<main id="main" tabindex="-1" class="n-focus">
+  <div class="l-stack" style="--gap: var(--s-6); width: min(100%, 400px)">
+
+    <div class="l-stack" style="--gap: var(--s-2); text-align: center; align-items: center">
+      <span class="n-avatar" aria-hidden="true">O</span>
+      <h1 class="t-headline-sm">Sign in to Ops</h1>
+      <p class="t-body-sm t-secondary">Internal tools · SSO required for admins</p>
+    </div>
+
+    <form class="n-card" style="border-radius: var(--r-lg)">
+      <div class="l-stack" style="--gap: var(--s-5)">
+        <div class="n-field">
+          <label for="email">Work email</label>
+          <input class="n-input" id="email" type="email" autocomplete="email"
+                 placeholder="you@example.com" aria-describedby="email-hint">
+          <p class="n-hint" id="email-hint">We send a six-digit code. It expires in 10 minutes.</p>
+        </div>
+        <button type="submit" class="n-btn n-btn--primary" style="width: 100%">Continue</button>
+        <button type="button" class="n-btn n-btn--secondary" style="width: 100%">
+          <i class="ph ph-buildings" aria-hidden="true"></i>Use single sign-on
+        </button>
+      </div>
+    </form>
+
+    <!-- OTP step (shown after the email step). The real value lives in one
+         hidden input so paste and autofill work; cells are presentational. -->
+    <form class="n-card" aria-labelledby="otp-title" style="border-radius: var(--r-lg)">
+      <div class="l-stack" style="--gap: var(--s-5)">
+        <div class="l-stack" style="--gap: var(--s-1)">
+          <h2 id="otp-title" class="t-headline-xs">Enter the code</h2>
+          <p class="t-body-sm t-secondary">Sent to you@example.com.</p>
+        </div>
+        <label class="visually-hidden" for="otp">Six-digit code</label>
+        <input class="visually-hidden" id="otp" inputmode="numeric"
+               autocomplete="one-time-code" maxlength="6">
+        <div class="otp-row n-otp" aria-hidden="true">
+          <span class="otp-cell">4</span><span class="otp-cell">7</span><span class="otp-cell">1</span>
+          <span class="otp-gap"></span>
+          <span class="otp-cell"></span><span class="otp-cell"></span><span class="otp-cell"></span>
+        </div>
+        <p class="t-body-xs t-muted" role="status">3 of 6 entered</p>
+        <div class="l-row">
+          <button type="button" class="n-btn n-btn--ghost n-btn--sm" aria-disabled="true">Resend in 24s</button>
+          <button type="submit" class="n-btn n-btn--primary u-right">Verify</button>
+        </div>
+      </div>
+    </form>
+
+    <p class="t-body-xs t-muted" style="text-align: center">
+      Trouble signing in? Ask in #it-help.
+    </p>
+  </div>
+</main>
+
+</body>
+</html>

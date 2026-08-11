@@ -1,0 +1,11 @@
+# A workstream mid-flight, with several agents and therefore one orchestrator.
+id: 04_migrate-the-fleet
+title: Migrate the fleet to project/1.0
+status: active
+owner: person:ana
+orchestrator: person:ana
+opened: 2026-07-14
+target: 2026-09-30
+closed: null
+standards: [project, matrix, checklist, workstream]
+note: "Blocked once on the registry credential rotation; unblocked 2026-08-01."

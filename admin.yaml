@@ -1,0 +1,48 @@
+# admin.yaml — who may act here, and who answers (ADMIN).
+# Roles come from the fixed ladder; ownership is decomposed into six duties.
+standard: project/1.0
+profile: team
+
+principals:
+  - id: team:standards
+    name: Standards team
+    kind: team
+    role: owner
+    contact: standards@example.com
+  - id: role:standards-maintainer
+    name: Standards maintainer
+    kind: role
+    role: maintainer
+  - id: role:editorial-lead
+    name: Editorial lead
+    kind: role
+    role: maintainer
+  - id: role:contributor
+    name: Contributor
+    kind: role
+    role: contributor          # R-1 — the default, at the narrowest useful scope
+  - id: agent:drafting-assistant
+    name: Drafting assistant
+    kind: agent
+    role: maintainer           # R-3 — the ceiling for an agent
+    sponsor: role:standards-maintainer
+    expires: 2027-02-08        # I-4 — elevation expires
+
+duties:                        # ADMIN — ownership, decomposed
+  direction: team:standards
+  code: role:standards-maintainer
+  operations: role:standards-maintainer
+  security: team:standards
+  cost: team:standards
+  compliance: team:standards
+
+surfaces:
+  - {name: forge, accountable: team:standards, review_days: 90}
+  - {name: package-registry, accountable: role:standards-maintainer, review_days: 180}
+  - {name: docs-site, accountable: role:editorial-lead, review_days: 180}
+
+two_key_actions:               # I-5 — two named principals, always
+  - transfer-repository
+  - change-visibility
+  - archive-repository
+  - rotate-publishing-credentials

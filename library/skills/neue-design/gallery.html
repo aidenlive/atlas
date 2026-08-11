@@ -1,0 +1,225 @@
+<!doctype html>
+<!-- NEUE — gallery. Everything in the system, live, in both themes
+     (toggle top right). The source of truth for what exists; if a
+     component is not on this page, it is not in the system. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gallery · Neue</title>
+  <link rel="stylesheet" href="dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/fill/style.css">
+  <script src="dist/neue.js" defer></script>
+  <style>
+    .demo { display: flex; flex-wrap: wrap; align-items: center;
+      gap: var(--s-4); padding: var(--s-5); border-radius: var(--r-md);
+      border: var(--hairline) solid var(--color-outline);
+      background: var(--color-surface); }
+    .swatch { height: 64px; border-radius: var(--r-sm);
+      border: var(--hairline) solid var(--color-outline);
+      display: flex; align-items: flex-end; padding: var(--s-2); }
+  </style>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+
+<div class="n-navrow">
+  <div class="n-island n-island--brand"><strong class="t-label-lg">Neue</strong></div>
+  <nav class="n-island n-island--nav" aria-label="Primary">
+    <a class="n-navlink" aria-current="page" href="#">Gallery</a>
+    <a class="n-navlink" href="layouts/dashboard.html">Layouts</a>
+    <a class="n-navlink" href="templates/report.html">Templates</a>
+  </nav>
+  <div class="n-island n-island--actions">
+    <button class="n-btn n-btn--icon n-btn--sm" data-theme-toggle aria-label="Toggle theme"><i class="ph ph-moon" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<main id="main" tabindex="-1" class="l-container l-container--wide" style="padding-block: var(--s-8) var(--s-12)">
+<div class="l-stack" style="--gap: var(--s-9)">
+
+  <header class="l-stack" style="--gap: var(--s-3)">
+    <p class="t-caption t-muted">Reference</p>
+    <h1 class="t-display">Everything, <span class="t-num">live.</span></h1>
+    <p class="t-body-lg t-secondary" style="max-width: var(--measure-narrow)">
+      The complete component catalog in both themes. If it is not on this
+      page, it does not exist — compose from what does.
+    </p>
+  </header>
+
+  <section class="n-section l-stack" style="--gap: var(--s-5)">
+    <h2 class="t-headline-md">Colour roles</h2>
+    <div class="l-grid" style="--min: 160px; --gap: var(--s-3)">
+      <div class="swatch" style="background: var(--color-background)"><span class="t-mono-xs">background</span></div>
+      <div class="swatch" style="background: var(--color-surface)"><span class="t-mono-xs">surface</span></div>
+      <div class="swatch" style="background: var(--color-surface-2)"><span class="t-mono-xs">surface-2</span></div>
+      <div class="swatch" style="background: var(--color-surface-3)"><span class="t-mono-xs">surface-3</span></div>
+      <div class="swatch" style="background: var(--color-primary)"><span class="t-mono-xs" style="color: var(--color-on-primary)">primary</span></div>
+      <div class="swatch" style="background: var(--color-error-surface)"><span class="t-mono-xs" style="color: var(--color-error)">error</span></div>
+      <div class="swatch" style="background: var(--color-success-surface)"><span class="t-mono-xs" style="color: var(--color-success)">success</span></div>
+      <div class="swatch" style="background: var(--color-warning-surface)"><span class="t-mono-xs" style="color: var(--color-warning)">warning</span></div>
+      <div class="swatch" style="background: var(--color-info-surface)"><span class="t-mono-xs" style="color: var(--color-info)">info</span></div>
+    </div>
+    <p class="t-body-xs t-muted">Chroma appears only for status, syntax, and data series. Fills use the *-fill roles; text uses the roles shown.</p>
+  </section>
+
+  <section class="n-section l-stack" style="--gap: var(--s-5)">
+    <h2 class="t-headline-md">Type roles</h2>
+    <div class="demo" style="flex-direction: column; align-items: flex-start; gap: var(--s-3)">
+      <p class="t-display">Display — page title</p>
+      <p class="t-headline-lg">Headline lg — article H1</p>
+      <p class="t-headline-md">Headline md — section</p>
+      <p class="t-headline-sm">Headline sm — card title</p>
+      <p class="t-body-lg t-secondary">Body lg — the deck under a page title.</p>
+      <p class="t-body">Body — prose at 17px/1.7, capped at the measure.</p>
+      <p class="t-body-sm">Body sm — the interface default.</p>
+      <p class="t-label">Label — field labels and buttons</p>
+      <p class="t-caption t-muted">Caption — eyebrows and table headers</p>
+      <p class="t-mono">mono — code and machine strings</p>
+      <p class="t-mono-xs t-muted">mono-xs — token names, group labels</p>
+    </div>
+  </section>
+
+  <section class="n-section l-stack" style="--gap: var(--s-5)">
+    <h2 class="t-headline-md">Buttons</h2>
+    <div class="demo">
+      <button class="n-btn n-btn--primary">Primary</button>
+      <button class="n-btn n-btn--secondary">Secondary</button>
+      <button class="n-btn n-btn--ghost">Ghost</button>
+      <button class="n-btn n-btn--danger">Danger</button>
+      <button class="n-btn n-btn--icon" aria-label="More options"><i class="ph ph-dots-three" aria-hidden="true"></i></button>
+      <button class="n-btn n-btn--primary n-btn--sm">Small</button>
+      <button class="n-btn n-btn--primary n-btn--lg">Large</button>
+      <button class="n-btn n-btn--primary" disabled>Disabled</button>
+      <button class="n-btn n-btn--secondary" aria-busy="true"><span class="n-spinner" aria-hidden="true"></span>Saving…</button>
+    </div>
+    <p class="t-body-xs t-muted">One primary per view. Ghost beside secondary is the Cancel pattern.</p>
+  </section>
+
+  <section class="n-section l-stack" style="--gap: var(--s-5)">
+    <h2 class="t-headline-md">Form controls</h2>
+    <div class="demo" style="align-items: flex-start">
+      <div class="n-field" style="min-width: 240px">
+        <label for="g-in">Text input</label>
+        <input class="n-input" id="g-in" type="text" placeholder="Placeholder is an example">
+        <p class="n-hint">Hint states the constraint up front.</p>
+      </div>
+      <div class="n-field" style="min-width: 240px">
+        <label for="g-err">Invalid</label>
+        <input class="n-input" id="g-err" type="text" aria-invalid="true" value="bad value" aria-describedby="g-err-msg">
+        <p class="n-error-msg" id="g-err-msg"><i class="ph-fill ph-warning-circle" aria-hidden="true"></i>Enter a date in the future.</p>
+      </div>
+      <div class="n-field" style="min-width: 200px">
+        <label for="g-sel">Select</label>
+        <select class="n-select" id="g-sel"><option>Editor</option><option>Viewer</option></select>
+      </div>
+    </div>
+    <div class="demo">
+      <label class="n-check"><input type="checkbox" checked><span class="box"><i class="ph-fill ph-check" aria-hidden="true"></i></span>Checkbox</label>
+      <label class="n-check n-check--radio"><input type="radio" name="g-r" checked><span class="box"></span>Radio</label>
+      <button class="n-toggle" role="switch" aria-checked="true" aria-label="Example toggle"></button>
+      <div class="n-seg" role="radiogroup" aria-label="Example segmented">
+        <button aria-pressed="true">Table</button><button aria-pressed="false">Board</button><button aria-pressed="false">List</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="n-section l-stack" style="--gap: var(--s-5)">
+    <h2 class="t-headline-md">Display</h2>
+    <div class="l-grid" style="--min: 280px; --gap: var(--s-4)">
+      <article class="n-card n-card--hover">
+        <div class="l-stack" style="--gap: var(--s-2)">
+          <h3 class="t-headline-sm">Card title</h3>
+          <p class="t-body-sm t-secondary">Flat at rest; hover lifts a hair and firms the border.</p>
+          <p class="t-body-xs t-muted t-num">12 items · Today</p>
+        </div>
+      </article>
+      <div class="n-callout n-callout--info" role="status">
+        <i class="ph-fill ph-info" aria-hidden="true"></i>
+        <div class="n-callout__body">
+          <p class="n-callout__title">Callout lead.</p>
+          <p>Four status tones plus neutral. Never colour-only.</p>
+        </div>
+      </div>
+      <div class="l-stack" style="--gap: var(--s-3)">
+        <div class="l-row">
+          <span class="n-pill"><span class="n-dot n-dot--success" aria-hidden="true"></span>Healthy</span>
+          <span class="n-pill n-pill--filled">Filled</span>
+          <span class="n-kbd">⌘K</span>
+          <span class="n-avatar n-avatar--sm">AK</span>
+        </div>
+        <div class="n-progress" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="Example progress"><div style="width: 64%"></div></div>
+        <div class="n-skeleton" style="height: 40px" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="n-table-wrap" tabindex="0" aria-label="Example table">
+      <table class="n-table">
+        <caption class="visually-hidden">Example data table</caption>
+        <thead><tr><th scope="col">Name</th><th scope="col">Status</th><th scope="col" class="num">Value</th></tr></thead>
+        <tbody>
+          <tr><td>alpha</td><td><span class="n-pill"><span class="n-dot n-dot--success" aria-hidden="true"></span>Live</span></td><td class="num t-num">1,204</td></tr>
+          <tr><td>beta</td><td><span class="n-pill"><span class="n-dot n-dot--warning" aria-hidden="true"></span>Draft</span></td><td class="num t-num">86</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="n-code">
+      <figcaption class="n-code-toolbar">example.css
+        <button class="n-btn n-btn--ghost n-btn--sm u-right" data-copy>Copy</button>
+      </figcaption>
+      <pre tabindex="0" aria-label="Example code"><code><span class="tok-punctuation">.</span><span class="tok-function">n-card</span> <span class="tok-punctuation">{</span> <span class="tok-attr">background</span><span class="tok-punctuation">:</span> <span class="tok-keyword">var</span><span class="tok-punctuation">(</span><span class="tok-string">--color-surface</span><span class="tok-punctuation">); }</span> <span class="tok-comment">/* tokens only */</span></code></pre>
+    </figure>
+  </section>
+
+  <section class="n-section l-stack" style="--gap: var(--s-5)">
+    <h2 class="t-headline-md">Disclosure & overlays</h2>
+    <div class="l-stack" style="--gap: var(--s-3); max-width: var(--content)">
+      <div class="n-accordion-item">
+        <h3><button class="n-accordion-trigger" aria-expanded="false">What opens here?<i class="ph ph-caret-down" aria-hidden="true"></i></button></h3>
+        <div class="n-accordion-panel"><div>The panel animates grid rows, never height. State lives on the item.</div></div>
+      </div>
+      <div class="l-row">
+        <button class="n-btn n-btn--secondary" data-modal-open="#g-modal">Open modal</button>
+        <button class="n-btn n-btn--secondary" data-drawer-open="#g-drawer" aria-expanded="false">Open drawer</button>
+      </div>
+      <div class="n-tablist" role="tablist" aria-label="Example tabs">
+        <button class="n-tab" role="tab" aria-selected="true">Overview</button>
+        <button class="n-tab" role="tab" aria-selected="false">Activity</button>
+        <button class="n-tab" role="tab" aria-selected="false">Settings</button>
+      </div>
+      <div class="n-empty">
+        <i class="ph ph-folder-simple-dashed" aria-hidden="true"></i>
+        <p class="n-empty__title">No components yet</p>
+        <p class="t-body-sm">Add your first component to see it in this gallery.</p>
+        <button class="n-btn n-btn--primary">Add component</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<dialog id="g-modal" class="n-modal" aria-labelledby="g-modal-title">
+  <div class="l-stack" style="--gap: var(--s-5)">
+    <h2 id="g-modal-title" class="t-headline-xs">A modal dialog</h2>
+    <p class="t-body-sm t-secondary">Built on the native dialog element: top
+      layer, backdrop, focus trap, and Escape come for free.</p>
+    <div class="l-row" style="--justify: flex-end; --gap: var(--s-3)">
+      <button class="n-btn n-btn--ghost" data-modal-close>Cancel</button>
+      <button class="n-btn n-btn--primary" data-modal-close>Confirm</button>
+    </div>
+  </div>
+</dialog>
+
+<aside id="g-drawer" class="n-drawer" data-open="false" aria-label="Example drawer">
+  <div class="l-stack" style="--gap: var(--s-4)">
+    <div class="l-row">
+      <strong class="t-headline-xs">Drawer</strong>
+      <button class="n-btn n-btn--icon n-btn--sm u-right" data-drawer-close aria-label="Close drawer"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <p class="t-body-sm t-secondary">Slides from the end edge; Escape closes; focus returns to the trigger.</p>
+  </div>
+</aside>
+
+</body>
+</html>

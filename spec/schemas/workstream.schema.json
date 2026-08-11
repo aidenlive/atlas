@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas.example/spec/schemas/workstream.schema.json",
+  "title": "Atlas workstream manifest",
+  "description": "One initiative: what it is, who owns it, and where it stands (WORKSTREAM).",
+  "type": "object",
+  "required": ["id", "title", "status", "owner", "opened"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[0-9]{2,3}_[a-z0-9]+(-[a-z0-9]+)*$", "description": "W-02, W-03"},
+    "title": {"type": "string"},
+    "status": {"type": "string", "enum": ["planned", "active", "blocked", "review", "done", "cancelled"], "description": "W-09"},
+    "owner": {"type": "string", "pattern": "^(person|team|role|agent):[a-z0-9-]+$", "description": "W-I6"},
+    "orchestrator": {"type": ["string", "null"], "description": "W-15"},
+    "opened": {"type": "string", "format": "date"},
+    "target": {"type": ["string", "null"], "format": "date"},
+    "closed": {"type": ["string", "null"], "format": "date"},
+    "standards": {"type": "array", "items": {"type": "string"}},
+    "note": {"type": "string"}
+  }
+}

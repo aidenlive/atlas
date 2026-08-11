@@ -1,0 +1,20 @@
+# Skill metadata (LIBRARY L-S1). The class index is generated from this file.
+id: neue-design
+name: Neue design
+version: "1.0"
+description: >-
+  Apply Neue, the fleet's visual identity, to a web surface: built CSS tokens
+  and components, a behaviour layer, five page layouts, four document
+  templates, a component gallery, and a blank starter.
+capability: design
+source: >-
+  Derived from library/design/DESIGN.md (Neue v1.0), the normative token
+  source (L-A4). The CSS is built output; a token change starts in DESIGN.md.
+files:
+  - dist/neue.tokens.css
+  - dist/neue.css
+  - dist/neue.js
+  - layouts/
+  - templates/
+  - gallery.html
+  - starter.html

@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- NEUE layout — documentation (reading shell).
+     Floating navrow + three-track grid at >= shell-min (1128px):
+     sidebar rail · content 780px · contents rail. Rails withdraw
+     below shell-min; the drawer takes over. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Getting started · Neue docs</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/fill/style.css">
+  <script src="../dist/neue.js" defer></script>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+
+<div class="n-navrow">
+  <div class="n-island n-island--brand"><strong class="t-label-lg">Neue docs</strong></div>
+  <nav class="n-island n-island--nav" aria-label="Primary">
+    <a class="n-navlink" href="#">Overview</a>
+    <a class="n-navlink" aria-current="page" href="#">Guides</a>
+    <a class="n-navlink" href="#">Reference</a>
+  </nav>
+  <div class="n-island n-island--actions">
+    <button class="n-btn n-btn--icon n-btn--sm" aria-label="Search"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+    <button class="n-btn n-btn--icon n-btn--sm" data-theme-toggle aria-label="Toggle theme"><i class="ph ph-moon" aria-hidden="true"></i></button>
+    <button class="n-btn n-btn--icon n-btn--sm" data-drawer-open="#docs-drawer" aria-expanded="false" aria-label="Open navigation"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<div class="n-shell-docs" style="padding-block: var(--s-7) var(--s-12)">
+
+  <nav class="n-rail" aria-label="Docs">
+    <p class="n-sidebar-group">Start</p>
+    <a class="n-sidebar-link" aria-current="location" href="#">Getting started</a>
+    <a class="n-sidebar-link" href="#">Installation</a>
+    <a class="n-sidebar-link" href="#">Theming</a>
+    <p class="n-sidebar-group">Foundations</p>
+    <a class="n-sidebar-link" href="#">Tokens</a>
+    <a class="n-sidebar-link" href="#">Layout</a>
+    <a class="n-sidebar-link" href="#">Typography</a>
+  </nav>
+
+  <main id="main" tabindex="-1" class="prose">
+    <p class="t-caption t-muted">Guides · 01</p>
+    <h1 class="t-headline-lg" style="margin-top: var(--s-2)">Getting started</h1>
+    <p class="t-body-lg t-secondary" style="margin-top: var(--s-4)">
+      Install the stylesheet, set the theme attribute, and write inside the
+      reading column. Nothing else is required.
+    </p>
+
+    <section class="n-section" id="install">
+      <h2 class="t-headline-md">Install</h2>
+      <p class="t-body">
+        Two lines are the entire install. Tokens, layout primitives, and
+        components arrive together; behaviour is a separate deferred script
+        and every no-JS state is the finished state.
+      </p>
+      <figure class="n-code" style="margin-top: var(--s-5)">
+        <figcaption class="n-code-toolbar">index.html
+          <button class="n-btn n-btn--ghost n-btn--sm u-right" data-copy>Copy</button>
+        </figcaption>
+        <pre tabindex="0" aria-label="Install snippet"><code><span class="tok-tag">&lt;link</span> <span class="tok-attr">rel</span>=<span class="tok-string">"stylesheet"</span> <span class="tok-attr">href</span>=<span class="tok-string">"dist/neue.css"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;script</span> <span class="tok-attr">src</span>=<span class="tok-string">"dist/neue.js"</span> <span class="tok-attr">defer</span><span class="tok-tag">&gt;&lt;/script&gt;</span></code></pre>
+      </figure>
+    </section>
+
+    <section class="n-section" id="tokens">
+      <h2 class="t-headline-md">Tokens, not values</h2>
+      <p class="t-body">
+        Every colour is a semantic token such as
+        <code class="n-code-inline">--color-surface</code> or
+        <code class="n-code-inline">--color-outline-strong</code>. If you find
+        yourself typing a hex value, the system is missing a token — add it
+        there rather than working around it.
+      </p>
+      <div class="n-callout n-callout--info" style="margin-top: var(--s-5)">
+        <i class="ph-fill ph-info" aria-hidden="true"></i>
+        <div class="n-callout__body">
+          <p class="n-callout__title">The interactive-boundary rule.</p>
+          <p>Control perimeters use outline-strong; the plain outline hairline
+          is decorative only. A text input drawn with outline looks correct
+          and fails the non-text contrast requirement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="n-section" id="dark">
+      <h2 class="t-headline-md">Dark theme</h2>
+      <p class="t-body">
+        Both themes share identical token names; only values change. Set
+        <code class="n-code-inline">data-theme="dark"</code> on the root, or
+        wire any control with <code class="n-code-inline">data-theme-toggle</code>.
+      </p>
+    </section>
+  </main>
+
+  <nav class="n-rail" aria-label="On this page">
+    <p class="n-sidebar-group">On this page</p>
+    <a class="n-toc-link" aria-current="location" href="#install">Install</a>
+    <a class="n-toc-link" href="#tokens">Tokens, not values</a>
+    <a class="n-toc-link" href="#dark">Dark theme</a>
+  </nav>
+
+</div>
+
+<aside id="docs-drawer" class="n-drawer" data-open="false" aria-label="Docs navigation">
+  <div class="l-stack" style="--gap: var(--s-4)">
+    <div class="l-row">
+      <strong class="t-headline-xs">Docs</strong>
+      <button class="n-btn n-btn--icon n-btn--sm u-right" data-drawer-close aria-label="Close navigation"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="l-stack" style="--gap: var(--s-1)">
+      <a class="n-sidebar-link" aria-current="location" href="#">Getting started</a>
+      <a class="n-sidebar-link" href="#">Installation</a>
+      <a class="n-sidebar-link" href="#">Theming</a>
+      <a class="n-sidebar-link" href="#">Tokens</a>
+      <a class="n-sidebar-link" href="#">Layout</a>
+    </div>
+  </div>
+</aside>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+# admin.yaml — who may act here, and who answers (ADMIN).
+# Roles come from the fixed ladder. Ownership is decomposed into six duties,
+# because "owns" unbundled goes unexercised.
+standard: project/1.0
+profile: solo
+
+principals:
+  - id: "{{OWNER}}"
+    name: Owner
+    kind: team
+    role: owner
+
+duties:                        # every duty names a principal
+  direction: "{{OWNER}}"
+  code: "{{OWNER}}"
+  operations: "{{OWNER}}"
+  security: "{{OWNER}}"
+  cost: "{{OWNER}}"
+  compliance: "{{OWNER}}"
+
+two_key_actions:               # I-5 — irreversible acts need two named principals
+  - transfer-repository
+  - change-visibility
+  - archive-repository
