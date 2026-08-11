@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas.example/spec/schemas/document.schema.json",
+  "title": "Atlas document front matter",
+  "description": "The facts a Markdown document declares about itself (WR-16).",
+  "type": "object",
+  "required": ["title", "kind", "owner", "status", "updated"],
+  "properties": {
+    "title": {"type": "string", "minLength": 3},
+    "kind": {"type": "string", "enum": ["standard", "guide", "reference", "explainer", "decision", "runbook", "policy", "template", "note"]},
+    "owner": {"type": "string", "pattern": "^(person|team|role|agent):[a-z0-9-]+$"},
+    "status": {"type": "string", "enum": ["draft", "review", "published", "stable", "superseded", "deprecated", "retired"], "description": "Specifications use the stability vocabulary; other documents use the publication one."},
+    "updated": {"type": "string", "format": "date"},
+    "review_by": {"type": "string", "format": "date"},
+    "audience": {"type": "array", "items": {"type": "string"}},
+    "summary": {"type": "string", "maxLength": 200},
+    "supersedes": {"type": "string"},
+    "generated_by": {"type": "string"}
+  }
+}

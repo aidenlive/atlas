@@ -1,0 +1,18 @@
+# A deprecated project. MX-05 requires both a successor and a sunset date, and
+# the schema refuses the manifest without them.
+standard: project/1.0
+name: sunset-gateway
+type: service.gateway
+stage: deprecated
+maturity: stable
+packaging: container
+deploy: managed.k8s
+ownership: team:platform
+visibility: internal
+support: best-effort
+successor: edge-router
+sunset_date: 2026-12-31
+metadata:
+  description: "Legacy edge routing, replaced by edge-router"
+  website: https://docs.example.com/sunset-gateway
+  topics: [service, gateway, deprecated, routing]

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="889" height="498" viewBox="0 0 889 498" role="img" aria-label="Terminal output of atlas spec list">
+  <title>atlas spec list</title>
+  <rect width="889" height="498" rx="10" fill="#121212" stroke="#292929"/>
+  <path d="M0 10a10 10 0 0 1 10-10h869a10 10 0 0 1 10 10v30H0z" fill="#181818"/>
+  <circle cx="22" cy="20" r="5.5" fill="#292929"/><circle cx="40" cy="20" r="5.5" fill="#292929"/><circle cx="58" cy="20" r="5.5" fill="#292929"/>
+  <text x="444.5" y="25" fill="#989898" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="middle">atlas spec list</text>
+  <g font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5">
+  <text x="26" y="56" fill="#F5F5F5" font-weight="500" xml:space="preserve">9 standards</text>
+  <text x="42" y="98" fill="#F5F5F5" font-weight="400" xml:space="preserve">workspace     Where does a file live?</text>
+  <text x="156" y="119" fill="#F5F5F5" font-weight="400" xml:space="preserve">14 rules · WK- · v1.0</text>
+  <text x="42" y="140" fill="#F5F5F5" font-weight="400" xml:space="preserve">project       What must be true inside a repository?</text>
+  <text x="156" y="161" fill="#F5F5F5" font-weight="400" xml:space="preserve">16 rules · PJ- · v1.0</text>
+  <text x="42" y="182" fill="#F5F5F5" font-weight="400" xml:space="preserve">matrix        What kind of project is it?</text>
+  <text x="156" y="203" fill="#F5F5F5" font-weight="400" xml:space="preserve">10 rules · MX- · v1.0</text>
+  <text x="42" y="224" fill="#F5F5F5" font-weight="400" xml:space="preserve">checklist     Is it good enough?</text>
+  <text x="156" y="245" fill="#F5F5F5" font-weight="400" xml:space="preserve">70 rules · SEC- OPS- ID- ST- BD- TS- CI- RL- DC- QG- CL- AX- HD- GA- GD- GX- · v1.0</text>
+  <text x="42" y="266" fill="#F5F5F5" font-weight="400" xml:space="preserve">admin         Who may act, who answers, who pays?</text>
+  <text x="156" y="287" fill="#F5F5F5" font-weight="400" xml:space="preserve">9 rules · I- R- · v1.0</text>
+  <text x="42" y="308" fill="#F5F5F5" font-weight="400" xml:space="preserve">presentation  How does it show itself?</text>
+  <text x="156" y="329" fill="#F5F5F5" font-weight="400" xml:space="preserve">17 rules · PR- P- · v1.0</text>
+  <text x="42" y="350" fill="#F5F5F5" font-weight="400" xml:space="preserve">library       Where do shared assets live, and on what terms?</text>
+  <text x="156" y="371" fill="#F5F5F5" font-weight="400" xml:space="preserve">28 rules · L-A L-I L-T L-M L-S L- · v1.0</text>
+  <text x="42" y="392" fill="#F5F5F5" font-weight="400" xml:space="preserve">workstream    What work is happening, by whom, and is it done?</text>
+  <text x="156" y="413" fill="#F5F5F5" font-weight="400" xml:space="preserve">31 rules · W-I WS- W- · v1.0</text>
+  <text x="42" y="434" fill="#F5F5F5" font-weight="400" xml:space="preserve">writing       How is any of this written?</text>
+  <text x="156" y="455" fill="#F5F5F5" font-weight="400" xml:space="preserve">16 rules · WR- · v1.0</text>
+  </g>
+</svg>

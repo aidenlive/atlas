@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220" role="img" aria-label="{{TITLE}}">
+  <title>{{TITLE}}</title>
+  <rect width="1200" height="220" fill="#FBFAF8"/>
+  <rect x="0" y="0" width="6" height="220" fill="#8A5A2B"/>
+  <text x="56" y="104" font-family="ui-sans-serif, system-ui, sans-serif" font-size="46" font-weight="600" fill="#1B1A17">{{TITLE}}</text>
+  <text x="56" y="146" font-family="ui-sans-serif, system-ui, sans-serif" font-size="19" fill="#5C574E">{{DESCRIPTION}}</text>
+  <text x="56" y="186" font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#8A5A2B">project/1.1  ·  replace this hero with a screenshot of the real thing</text>
+</svg>

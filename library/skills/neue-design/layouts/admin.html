@@ -1,0 +1,143 @@
+<!doctype html>
+<!-- NEUE layout — admin (browse shell): an index and the thing it indexes.
+     Sidebar rail + record panel + detail content. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Members · Ops</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/fill/style.css">
+  <script src="../dist/neue.js" defer></script>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+
+<div class="n-app">
+  <nav class="n-app__sidebar" aria-label="Primary">
+    <div class="n-app__brand">
+      <span class="n-avatar n-avatar--xs" aria-hidden="true">O</span>
+      <strong class="t-label-lg">Ops</strong>
+    </div>
+    <p class="n-sidebar-group">Monitor</p>
+    <a class="n-sidebar-link" href="dashboard.html">Status</a>
+    <a class="n-sidebar-link" href="#">Alerts</a>
+    <p class="n-sidebar-group">Manage</p>
+    <a class="n-sidebar-link" href="#">Deploys</a>
+    <a class="n-sidebar-link" aria-current="page" href="#">Members</a>
+    <a class="n-sidebar-link" href="settings.html">Settings</a>
+  </nav>
+
+  <div class="n-app__main">
+    <header class="n-toolbar">
+      <h1 class="t-headline-xs">Members</h1>
+      <span class="t-body-xs t-muted t-num">24 people</span>
+      <div class="l-row u-right" style="--gap: var(--s-3)">
+        <input class="n-input" type="search" placeholder="Search members" aria-label="Search members" style="max-width: 240px; height: var(--control-h-sm)">
+        <div class="n-seg" role="radiogroup" aria-label="Role filter">
+          <button aria-pressed="true">All</button>
+          <button aria-pressed="false">Admins</button>
+          <button aria-pressed="false">Viewers</button>
+        </div>
+        <button class="n-btn n-btn--primary n-btn--sm"><i class="ph ph-plus" aria-hidden="true"></i>Invite member</button>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1" class="n-app__content">
+      <div class="l-split" style="--aside: 300px; --gap: var(--s-6)">
+
+        <aside aria-label="Member list" class="l-stack" style="--gap: var(--s-1)">
+          <a class="n-sidebar-link" aria-current="true" href="#">
+            <span class="n-avatar n-avatar--xs" style="margin-inline-end: var(--s-2)" aria-hidden="true">AK</span>Amara Khan
+          </a>
+          <a class="n-sidebar-link" href="#">
+            <span class="n-avatar n-avatar--xs" style="margin-inline-end: var(--s-2)" aria-hidden="true">JB</span>Jonas Berg
+          </a>
+          <a class="n-sidebar-link" href="#">
+            <span class="n-avatar n-avatar--xs" style="margin-inline-end: var(--s-2)" aria-hidden="true">RP</span>Rui Pereira
+          </a>
+          <a class="n-sidebar-link" href="#">
+            <span class="n-avatar n-avatar--xs" style="margin-inline-end: var(--s-2)" aria-hidden="true">SO</span>Sade Okafor
+          </a>
+          <!-- No-results state for the list, shown when a filter excludes everything:
+          <div class="n-empty" role="status">
+            <p class="n-empty__title">No matches for "qa-"</p>
+            <p class="t-body-sm">Try a broader term.</p>
+            <button class="n-btn n-btn--secondary n-btn--sm">Clear filters</button>
+          </div> -->
+        </aside>
+
+        <section aria-label="Member detail" class="l-stack" style="--gap: var(--s-6)">
+          <div class="l-row" style="--gap: var(--s-4)">
+            <span class="n-avatar" aria-hidden="true">AK</span>
+            <div class="l-stack" style="--gap: 2px">
+              <h2 class="t-headline-sm">Amara Khan</h2>
+              <p class="t-body-xs t-muted">amara@example.com · joined 14 Mar 2026</p>
+            </div>
+            <span class="n-pill u-right"><span class="n-dot n-dot--success" aria-hidden="true"></span>Active</span>
+          </div>
+
+          <div class="n-card">
+            <div class="l-stack" style="--gap: var(--s-5)">
+              <div class="n-field">
+                <label for="role">Role</label>
+                <select class="n-select" id="role">
+                  <option>Admin</option><option selected>Editor</option><option>Viewer</option>
+                </select>
+                <p class="n-hint">Editors can change data but not billing or members.</p>
+              </div>
+              <div class="l-row">
+                <div class="l-stack" style="--gap: 2px">
+                  <p class="t-label">Two-factor authentication</p>
+                  <p class="t-body-xs t-muted">Required for admins.</p>
+                </div>
+                <button class="n-toggle u-right" role="switch" aria-checked="true" aria-label="Two-factor authentication"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="n-table-wrap" tabindex="0" aria-label="Recent activity">
+            <table class="n-table">
+              <caption class="visually-hidden">Recent activity for this member</caption>
+              <thead><tr><th scope="col">Action</th><th scope="col">Target</th><th scope="col" class="num">When</th></tr></thead>
+              <tbody>
+                <tr><td>Updated config</td><td><code class="n-code-inline">ingest.yaml</code></td><td class="num t-num">2 h ago</td></tr>
+                <tr><td>Triggered deploy</td><td>api-gateway v2.14</td><td class="num t-num">Yesterday</td></tr>
+                <tr><td>Signed in</td><td>Web · Lisbon</td><td class="num t-num">Yesterday</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="l-row">
+            <button class="n-btn n-btn--ghost">Reset password…</button>
+            <button class="n-btn n-btn--danger u-right" data-modal-open="#remove-modal">Remove member…</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<dialog id="remove-modal" class="n-modal n-modal--sm" aria-labelledby="rm-title">
+  <div class="l-stack" style="--gap: var(--s-5)">
+    <h2 id="rm-title" class="t-headline-xs">Remove Amara Khan?</h2>
+    <p class="t-body-sm t-secondary">They lose access immediately. Their audit
+      history is kept. This cannot be undone.</p>
+    <div class="l-row" style="--justify: flex-end; --gap: var(--s-3)">
+      <button class="n-btn n-btn--ghost" data-modal-close>Cancel</button>
+      <button class="n-btn n-btn--danger" data-modal-close>Remove member</button>
+    </div>
+  </div>
+</dialog>
+
+<nav class="n-bottombar" aria-label="Primary">
+  <a href="dashboard.html"><i class="ph ph-pulse" aria-hidden="true"></i>Status</a>
+  <a href="#"><i class="ph ph-bell" aria-hidden="true"></i>Alerts</a>
+  <a aria-current="page" href="#"><i class="ph-fill ph-users" aria-hidden="true"></i>Members</a>
+  <a href="settings.html"><i class="ph ph-gear" aria-hidden="true"></i>Settings</a>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://atlas.example/spec/schemas/project.schema.json",
+  "title": "Atlas project manifest",
+  "description": "The repository's classification record: every MATRIX dimension, machine-readable at a fixed path (PJ-12, MX-01).",
+  "type": "object",
+  "required": ["standard", "name", "type", "stage", "maturity", "packaging", "deploy", "ownership", "visibility", "support"],
+  "additionalProperties": false,
+  "properties": {
+    "standard": {"type": "string", "pattern": "^project/[0-9]+\\.[0-9]+$"},
+    "name": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "PJ-13: lowercase-hyphenated, noun-first, unprefixed by org"},
+
+    "type": {
+      "type": "string",
+      "description": "MATRIX D1",
+      "enum": [
+        "app.web", "app.mobile", "app.desktop", "app.tui",
+        "lib.package", "lib.framework", "lib.sdk", "lib.plugin",
+        "service.api", "service.worker", "service.gateway", "service.mcp",
+        "tool.cli", "tool.action", "tool.script",
+        "platform.infra", "platform.design", "platform.template", "platform.config",
+        "content.docs", "content.spec", "content.data", "content.research"
+      ]
+    },
+    "interfaces": {
+      "type": "array",
+      "description": "MX-03: the other surfaces a hybrid exposes",
+      "items": {"type": "string", "enum": ["http-api", "cli", "sdk", "ui", "mcp"]}
+    },
+    "stage": {"type": "string", "description": "MATRIX D2", "enum": ["idea", "incubating", "active", "maintenance", "deprecated", "archived"]},
+    "maturity": {"type": "string", "description": "MATRIX D3", "enum": ["experimental", "alpha", "beta", "stable", "hardened"]},
+    "packaging": {"type": "string", "description": "MATRIX D4", "enum": ["registry", "container", "binary", "installer", "bundle", "source", "none"]},
+    "deploy": {"type": "string", "description": "MATRIX D5", "enum": ["none", "client", "serverless", "managed.paas", "managed.k8s", "selfhosted", "embedded"]},
+    "ownership": {"type": "string", "description": "MATRIX D6; MX-10 ties this to ADMIN", "pattern": "^(team:[a-z0-9-]+|person:[a-z0-9-]+|community|unowned)$"},
+    "visibility": {"type": "string", "description": "MATRIX D7", "enum": ["public", "internal", "restricted", "private"]},
+    "support": {"type": "string", "description": "MATRIX D8", "enum": ["none", "best-effort", "business-hours", "sla"]},
+
+    "successor": {"type": ["string", "null"], "description": "MX-05: required once stage is deprecated"},
+    "sunset_date": {"type": ["string", "null"], "description": "MX-05: required once stage is deprecated"},
+    "forge_archived": {"type": "boolean", "description": "MX-06: required true once stage is archived"},
+
+    "metadata": {
+      "type": "object",
+      "description": "PRESENTATION P-01, P-03, P-04",
+      "additionalProperties": false,
+      "required": ["description", "topics"],
+      "properties": {
+        "description": {"type": "string", "maxLength": 160},
+        "website": {"type": "string"},
+        "topics": {"type": "array", "minItems": 3, "maxItems": 10, "items": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}}
+      }
+    },
+
+    "links": {"type": "object", "additionalProperties": {"type": "string"}},
+    "languages": {"type": "array", "items": {"type": "string"}},
+
+    "waivers": {
+      "type": "array",
+      "description": "CHECKLIST waivers. No expiry means a silent exception, so expiry is required.",
+      "items": {
+        "type": "object",
+        "required": ["item", "reason", "approver", "expires"],
+        "additionalProperties": false,
+        "properties": {
+          "item": {"type": "string", "pattern": "^[A-Z]{1,3}-[0-9]{2}$"},
+          "reason": {"type": "string", "minLength": 10},
+          "approver": {"type": "string", "pattern": "^(person|team|role|agent):[a-z0-9-]+$"},
+          "expires": {"type": "string", "format": "date"}
+        }
+      }
+    },
+
+    "lint": {
+      "type": "object",
+      "description": "WRITING: house numbers for the prose linter. Omit to accept the defaults.",
+      "additionalProperties": false,
+      "properties": {
+        "max_sentence_words": {"type": "integer", "minimum": 12, "maximum": 60},
+        "max_paragraph_sentences": {"type": "integer", "minimum": 2, "maximum": 12},
+        "max_heading_depth": {"type": "integer", "minimum": 2, "maximum": 6},
+        "required_fields": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"stage": {"const": "deprecated"}}, "required": ["stage"]},
+      "then": {"required": ["successor", "sunset_date"], "description": "MX-05"}
+    },
+    {
+      "if": {"properties": {"stage": {"const": "archived"}}, "required": ["stage"]},
+      "then": {"properties": {"forge_archived": {"const": true}}, "required": ["forge_archived"], "description": "MX-06"}
+    }
+  ]
+}

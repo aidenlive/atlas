@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- NEUE template — internal email / digest. Table-free, inline-safe
+     structure kept simple; tokens still drive everything on-screen.
+     For real email clients, inline the computed styles at send time. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weekly ops digest</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <script src="../dist/neue.js" defer></script>
+</head>
+<body class="neue-base" style="padding: var(--s-6) var(--s-4)">
+<main class="l-center" style="max-width: 560px">
+  <div class="n-card" style="border-radius: var(--r-lg)">
+    <div class="l-stack" style="--gap: var(--s-5)">
+      <p class="t-caption t-muted">Ops · weekly digest · 3–9 Aug</p>
+      <h1 class="t-headline-sm">Quiet week. One thing to watch.</h1>
+      <p class="t-body-sm">Uptime 99.99%, no incidents, 14 deploys. Ingest
+        queue depth is trending up 8% week over week — not urgent, worth a
+        look before the September launch.</p>
+      <hr class="n-divider">
+      <div class="l-stack" style="--gap: var(--s-3)">
+        <div class="l-row"><span class="t-body-sm">Uptime</span><strong class="t-body-sm t-num u-right">99.99%</strong></div>
+        <div class="l-row"><span class="t-body-sm">p95 latency</span><strong class="t-body-sm t-num u-right">178 ms</strong></div>
+        <div class="l-row"><span class="t-body-sm">Deploys</span><strong class="t-body-sm t-num u-right">14</strong></div>
+      </div>
+      <a class="n-btn n-btn--primary" href="#" style="align-self: flex-start">Open the dashboard</a>
+      <p class="t-body-xs t-muted">You receive this because you are in the Ops
+        workspace. Manage notifications in Settings.</p>
+    </div>
+  </div>
+</main>
+</body>
+</html>

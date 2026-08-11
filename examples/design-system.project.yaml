@@ -1,0 +1,16 @@
+# A platform project: its consumers are other repositories, which is why
+# PRESENTATION P-11 makes it the home of the fleet's visual identity.
+standard: project/1.0
+name: design-system
+type: platform.design
+stage: active
+maturity: hardened
+packaging: registry
+deploy: none
+ownership: team:design-platform
+visibility: internal
+support: sla
+metadata:
+  description: "Tokens, components, and patterns every product surface inherits"
+  website: https://design.example.com
+  topics: [platform, design-system, tokens, components, accessibility]

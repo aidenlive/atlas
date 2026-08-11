@@ -1,0 +1,43 @@
+# project.yaml — this repository's classification record (PJ-12, MX-01).
+# Validated in CI: `atlas validate project.yaml`.
+standard: project/1.0          # the CONTRACT version — docs/reference/versioning.md
+
+name: atlas
+
+# The eight MATRIX dimensions. All eight, always (MX-01).
+type: content.spec             # D1 — the standard is the product
+interfaces: [cli]              # MX-03 — the tooling is a surface, not the centre
+stage: active                  # D2
+maturity: stable               # D3 — CHECKLIST Production profile passes in CI (MX-08)
+packaging: registry            # D4 — published as atlas-standard on PyPI
+deploy: none                   # D5
+ownership: team:standards      # D6 — resolves in admin.yaml (MX-10)
+visibility: public             # D7
+support: best-effort           # D8
+
+successor: null
+sunset_date: null
+
+metadata:                      # PRESENTATION P-01, P-03, P-04
+  description: "Declared, versioned, machine-checked structure for digital work"
+  website: https://github.com/OWNER/atlas
+  topics: [content, standards, repository-structure, workspace, governance, cli, ai-agents, documentation]
+
+links:
+  spec: ./spec/
+  docs: ./docs/
+  cli: ./docs/reference/cli.md
+  checklist: ./spec/checklist.md
+  tracker: https://github.com/OWNER/atlas/issues
+
+languages: [en]
+
+# CHECKLIST waivers (none). Each would name the item, the reason, the
+# approver, and an expiry — a waiver without an expiry is a silent exception,
+# and an expired one waives nothing and fails `waivers-honest`.
+waivers: []
+
+lint:                          # WRITING house numbers
+  max_sentence_words: 34
+  max_paragraph_sentences: 6
+  max_heading_depth: 4

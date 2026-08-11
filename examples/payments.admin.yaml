@@ -1,0 +1,47 @@
+# A team profile. Every duty names a principal, and the agent is sponsored,
+# capped at maintainer (R-3), and expires (I-4).
+standard: project/1.0
+profile: team
+
+principals:
+  - id: team:payments
+    name: Payments team
+    kind: team
+    role: owner
+  - id: person:ana
+    name: Ana Ruiz
+    kind: person
+    role: maintainer
+    contact: ana@example.com
+  - id: person:bo
+    name: Bo Chen
+    kind: person
+    role: maintainer
+  - id: person:kit
+    name: Kit Osei
+    kind: person
+    role: contributor
+  - id: agent:release-bot
+    name: Release assistant
+    kind: agent
+    role: maintainer
+    sponsor: person:ana
+    expires: 2027-01-31
+
+duties:
+  direction: team:payments
+  code: person:ana
+  operations: person:bo
+  security: person:ana
+  cost: team:payments
+  compliance: team:payments
+
+surfaces:
+  - {name: forge, accountable: person:ana, review_days: 90}
+  - {name: cloud-account, accountable: person:bo, review_days: 90}
+  - {name: secret-store, accountable: person:ana, review_days: 30}
+
+two_key_actions:
+  - transfer-repository
+  - change-visibility
+  - rotate-production-credentials

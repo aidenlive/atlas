@@ -1,0 +1,63 @@
+<!doctype html>
+<!-- NEUE template — internal report. Reading column, print-aware.
+     Replace all content; never invent numbers. -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Q2 reliability report · Ops</title>
+  <link rel="stylesheet" href="../dist/neue.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css">
+  <script src="../dist/neue.js" defer></script>
+</head>
+<body class="neue-base">
+<a class="n-skip" href="#main">Skip to content</a>
+<main id="main" tabindex="-1" class="l-container prose" style="padding-block: var(--s-9) var(--s-12)">
+  <p class="t-caption t-muted">Ops · internal · Q2 2026</p>
+  <h1 class="t-headline-lg" style="margin-top: var(--s-2)">Q2 reliability report</h1>
+  <p class="t-body-lg t-secondary" style="margin-top: var(--s-4)">
+    Uptime held above target; latency regressed in May and recovered after the
+    ingest rework. One Sev-1, resolved in 41 minutes.
+  </p>
+
+  <div class="l-grid" style="--min: 200px; --gap: var(--s-4); margin-top: var(--s-7)">
+    <article class="n-card"><p class="t-caption t-muted">Uptime</p><p class="t-headline-md t-num">99.96%</p></article>
+    <article class="n-card"><p class="t-caption t-muted">p95 latency</p><p class="t-headline-md t-num">191 ms</p></article>
+    <article class="n-card"><p class="t-caption t-muted">Incidents</p><p class="t-headline-md t-num">4</p></article>
+    <article class="n-card"><p class="t-caption t-muted">MTTR</p><p class="t-headline-md t-num">38 min</p></article>
+  </div>
+
+  <section class="n-section">
+    <h2 class="t-headline-md">What changed</h2>
+    <p class="t-body">The ingest pipeline moved to batched writes in May,
+      trading 20 ms of p95 for a 60% drop in write amplification. The
+      regression was visible for three weeks and is now recovered.</p>
+  </section>
+
+  <section class="n-section">
+    <h2 class="t-headline-md">Incidents</h2>
+    <div class="n-table-wrap" tabindex="0" aria-label="Incident table">
+      <table class="n-table">
+        <caption class="visually-hidden">Incidents in Q2 with severity and resolution time</caption>
+        <thead><tr><th scope="col">Date</th><th scope="col">Severity</th><th scope="col">Cause</th><th scope="col" class="num">Time to resolve</th></tr></thead>
+        <tbody>
+          <tr><td>14 Apr</td><td>Sev-2</td><td>Queue backlog</td><td class="num t-num">1 h 20 m</td></tr>
+          <tr><td>02 May</td><td>Sev-1</td><td>Cert expiry</td><td class="num t-num">41 m</td></tr>
+          <tr><td>27 May</td><td>Sev-3</td><td>Slow deploy</td><td class="num t-num">2 h 05 m</td></tr>
+          <tr><td>18 Jun</td><td>Sev-2</td><td>Provider outage</td><td class="num t-num">55 m</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="n-section">
+    <h2 class="t-headline-md">Next quarter</h2>
+    <ul class="t-body">
+      <li>Automate certificate rotation; the May Sev-1 was preventable.</li>
+      <li>Add a second ingest region behind the same queue.</li>
+      <li>Bring alert noise under 5 pages per on-call week.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

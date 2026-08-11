@@ -1,0 +1,21 @@
+# A production service. Claiming `stable` puts the CHECKLIST Production profile
+# in CI (MX-08), so this manifest is a commitment, not a label.
+standard: project/1.0
+name: invoice-api
+type: service.api
+interfaces: [http-api, cli]
+stage: active
+maturity: stable
+packaging: container
+deploy: managed.k8s
+ownership: team:payments
+visibility: internal
+support: business-hours
+successor: null
+sunset_date: null
+metadata:
+  description: "Issues, stores, and reconciles customer invoices"
+  website: https://docs.example.com/invoice-api
+  topics: [service, payments, invoicing, api, internal]
+links:
+  runbook: ./docs/guides/runbook.md

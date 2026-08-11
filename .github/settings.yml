@@ -1,0 +1,45 @@
+# Repository settings as code (PRESENTATION P-05). The description and topics
+# are copied from project.yaml; drift between the two is a defect the
+# presentation-metadata gate reports.
+repository:
+  name: atlas
+  description: "Declared, versioned, machine-checked structure for digital work"
+  homepage: https://github.com/OWNER/atlas
+  topics: content, standards, repository-structure, workspace, governance, cli, ai-agents, documentation
+  has_issues: true
+  has_wiki: false
+  has_projects: false
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+      required_status_checks:
+        strict: true
+        contexts:
+          - standard
+          - tests (py3.12)
+      enforce_admins: false
+      restrictions: null
+
+labels:
+  - name: standard
+    color: "5C4B8A"
+    description: Changes what the standard requires
+  - name: tooling
+    color: "2F7A46"
+    description: The CLI, a gate, or the linter
+  - name: docs
+    color: "2F6FB0"
+    description: Guides, reference, and prose
+  - name: library
+    color: "8A5A2B"
+    description: Prompts, lexicon, and shared assets

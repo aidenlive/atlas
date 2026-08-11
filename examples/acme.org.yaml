@@ -1,0 +1,27 @@
+# An organization. R-4 bounds stewards at two to five: enough for bus factor,
+# few enough for accountability.
+standard: project/1.0
+org: acme
+
+stewards:
+  - person:ana
+  - person:jules
+  - person:sam
+
+teams:
+  - id: team:payments
+    name: Payments
+    lead: person:ana
+    members: [person:bo, person:kit]
+  - id: team:platform
+    name: Platform
+    lead: person:jules
+  - id: team:design-platform
+    name: Design platform
+    lead: person:sam
+
+policy:
+  default_role: contributor      # R-1
+  access_review_days: 90
+  agent_max_role: maintainer     # R-3
+  required_visibility: internal

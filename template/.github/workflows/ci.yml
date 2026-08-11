@@ -1,0 +1,33 @@
+name: ci
+
+# The standard, checked on every proposed change.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  standard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # `atlas lint --changed` needs history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install atlas-standard
+      - name: Repository against the standard
+        run: atlas check
+      - name: Prose against WRITING
+        run: atlas lint
+      - name: Work dashboard is current
+        run: |
+          atlas work sync
+          git diff --exit-code || {
+            echo "::error::run 'atlas work sync' and commit the result"; exit 1; }
