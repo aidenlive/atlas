@@ -55,3 +55,4 @@ expiring — never exclusion lists in the tooling.
   CLI reference — is derived by a script and held current by CI.
 - CI runs the suite against this repository itself; the standard eats first.
 - The rendered site deploys to GitHub Pages on every push to `main`.
+
