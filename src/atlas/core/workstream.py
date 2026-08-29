@@ -278,7 +278,6 @@ def build_index(work_dir: pathlib.Path) -> dict[str, t.Any]:
     workstreams = load_workstreams(work_dir)
     return {
         "generated_by": "atlas work sync",
-        "generated_on": dt.date.today().isoformat(),
         "count": len(workstreams),
         "done": sum(ws.done for ws in workstreams),
         "total": sum(ws.total for ws in workstreams),
