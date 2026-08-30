@@ -241,9 +241,15 @@ def _subcommands(parser: argparse.ArgumentParser) -> list[dict[str, t.Any]]:
     return out
 
 
-def render_reference() -> str:
-    """Render ``docs/reference/cli.md`` from the parser itself."""
+def render_reference(previous: str | None = None) -> str:
+    """Render ``docs/reference/cli.md`` from the parser itself.
+
+    ``previous`` is the file's current content, if any. When the rendered
+    reference differs from it only by the ``updated`` date, the previous date
+    is kept so regeneration is deterministic and CI freshness checks pass.
+    """
     import datetime as dt
+    import re
 
     tree = {entry["name"]: entry for entry in command_tree()}
     lines = [
@@ -290,4 +296,12 @@ def render_reference() -> str:
                 for option in entry["options"]:
                     lines.append(f"| `{option['flags']}` | {option['help']} |")
                 lines.append("")
-    return "\n".join(lines).rstrip() + "\n"
+    text = "\n".join(lines).rstrip() + "\n"
+    if previous:
+        date_line = r"(?m)^updated: \d{4}-\d{2}-\d{2}$"
+        match = re.search(date_line, previous)
+        if match:
+            kept = re.sub(date_line, match.group(0), text, count=1)
+            if kept == previous:
+                return kept
+    return text

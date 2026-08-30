@@ -20,7 +20,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 def main() -> int:
     target = ROOT / "docs" / "reference" / "cli.md"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(render_reference(), encoding="utf-8")
+    previous = target.read_text(encoding="utf-8") if target.is_file() else None
+    target.write_text(render_reference(previous), encoding="utf-8")
     print(f"wrote {target.relative_to(ROOT)}")
     return 0
 
