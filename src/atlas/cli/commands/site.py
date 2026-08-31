@@ -113,6 +113,10 @@ def _style(repo) -> str:
     return STYLE_TEMPLATE.format(l=light, d=dark, sans=sans, mono=mono)
 
 _INLINE = (
+    # Restore inline <img> tags the escape pass neutralised, so Markdown like
+    # `[<img src="…">](target)` (the README badges) renders as an image, not
+    # as literal angle-bracket text. Only img, and only attribute characters.
+    (re.compile(r"&lt;(img\s[^&<>]*?)\s*/?&gt;"), r"<\1>"),
     (re.compile(r"`([^`]+)`"), r"<code>\1</code>"),
     (re.compile(r"\*\*([^*]+)\*\*"), r"<strong>\1</strong>"),
     (re.compile(r"(?<![\w*])\*([^*\n]+)\*(?![\w*])"), r"<em>\1</em>"),
@@ -284,6 +288,9 @@ def _page(title: str, meta: dict[str, t.Any], content: str, nav: str, depth: int
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)} · Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="{prefix}style.css">
 </head><body><div class="wrap">
 <nav>{nav.replace('href="', f'href="{prefix}')}</nav>
